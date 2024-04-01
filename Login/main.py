@@ -1,109 +1,211 @@
+from flet import *
 import flet as ft
 
-conteiner = ft.Container(
-    ft.Column([
-        ft.Container(
-            ft.Text(
-                "Login",
-                width=320,
-                size=30,
-                text_align="center",
-                weight="w900",
-            ),
-            padding= ft.padding.only(20,20),
-        ),
-        ft.Container(
-            ft.TextField(
-                width=280,
-                height=40,
-                hint_text="Email",
-                border="underline",
-                color="black",
-                prefix_icon=ft.icons.EMAIL
-            ),
-            padding= ft.padding.only(20,20),
-        ),
-        ft.Container(
-            ft.TextField(
-                width=280,
-                height=40,
-                hint_text="Password",
-                border="underline",
-                color="black",
-                prefix_icon=ft.icons.LOCK,
-                password=True
-            ),
-            padding= ft.padding.only(20,20),
-        ),
+def main(page: Page):
+    page.title = "Login and Register",
+    
 
-        ft.Container(
-            ft.Checkbox(
-                label="Remember me",
-                check_color= "black",
-            ),
-            padding= ft.padding.only(20,20),
-        ),
-        ft.Container(
-            ft.ElevatedButton(
-                text="Login",
-                width=280,
-                bgcolor="black"
-            ),
-            padding= ft.padding.only(20,20),
-        ),
-        ft.Text("Login with",
-                text_align="center",
-                width=320),
+    # Definir el tema de la pagina
+    page.theme_mode = ThemeMode.DARK
+    
 
-        ft.Container(
-            ft.Row([
-                ft.IconButton(
-                    icon=ft.icons.EMAIL,
-                    tooltip="Google",
-                    icon_size="35"
+    # Definir la estructura del contenedor de inicio de sesión
+    login_container = Container(
+        width=320,
+        height=750,
+        bgcolor="#ffffff",
+        border_radius=10,
+        content=Column(
+            width=320,
+            controls=[
+                Container(
+                    width=300,
+                    margin=margin.only(left=170, right=20, top=5),  # Corregido el margen
+                    content=TextButton(
+                        "Create Account",
+                        style=ButtonStyle(color="000000")
+                    )
                 ),
-                ft.IconButton(
-                    icon=ft.icons.FACEBOOK,
-                    tooltip="Facebook",
-                    icon_size="35"
+                Container(
+                    width=300,
+                    margin=margin.only(left=110, right=20, top=5),  # Corregido el margen
+                    content=Text(
+                        "Login",
+                        size=30,
+                        color="#000000",
+                        weight='w700'
+                    )
                 ),
-                ft.IconButton(
-                    icon=ft.icons.APPLE,
-                    tooltip="Apple",
-                    icon_size="35"
+                Container(
+                    width=300,
+                    margin=margin.only(left=20, right=20, top=5),
+                    alignment=alignment.center,
+                    content=Text(
+                        "Please enter your information below in order to login to your",
+                        size=14,
+                        color="#000000",
+                        text_align="center"
+                    )
                 ),
-            ],
-            alignment=ft.MainAxisAlignment.CENTER
-            ),
-            padding= ft.padding.only(20,20),
+                Container(
+                    width=300,
+                    margin=margin.only(left=20, right=20, top=5),
+                    content=Column(
+                        controls=[
+                            Text(
+                                "Username",
+                                size=14,
+                                color="#000000",
+                            ),
+                            TextField(
+                                text_style=TextStyle(
+                                    color="#000000",
+                                ),
+                                border_radius=15,
+                                border_color=colors.BLACK,
+                                focused_border_color=colors.ORANGE_700,
+                            )
+                        ]
+                    )
+                ),
+                Container(
+                    width=300,
+                    margin=margin.only(left=20, right=20, top=5),
+                    content=Column(
+                        controls=[
+                            Text(
+                                "Password",
+                                size=14,
+                                color="#000000",
+                            ),
+                            TextField(
+                                text_style=TextStyle(
+                                    color="#000000",
+                                ),
+                                password=True,
+                                can_reveal_password=True,
+                                border_radius=15,
+                                border_color=colors.BLACK,
+                                focused_border_color=colors.ORANGE_700,
+                            )
+                        ]
+                    )
+                ),
+                Container(
+                    width=300,
+                    margin=margin.only(left=20, right=20, top=5),  # Corregido el margen
+                    content=TextButton(
+                        "Forgot Password?",
+                        style=ButtonStyle(color="#000000")
+                    )
+                ),
+                Container(
+                    width=300,
+                    margin=margin.only(left=20, right=20, top=20),  # Corregido el margen
+                    content=ElevatedButton(
+                        "Login",
+                        width=300,
+                        height=55,
+                        style=ButtonStyle(
+                            bgcolor=colors.ORANGE_700,
+                            color=colors.WHITE,
+                            shape={
+                                MaterialState.HOVERED: RoundedRectangleBorder(),
+                                MaterialState.DEFAULT: RoundedRectangleBorder(),
+                            },
+                            padding=20,
+                        )
+                    )
+                ),
+                Container(
+                    width=300,
+                    margin=margin.only(left=20, right=20, top=15),  # Corregido el margen
+                    content=Text(
+                        "Or use social media account for login",
+                        size=14,
+                        text_align="center",
+                        color="#000000",  # Corregido el color
+                    )
+                ),
+                Container(
+                    width=300,
+                    margin=margin.only(left=10, right=10, top=5),  # Corregido el margen
+                    content=Row(
+                        controls=[
+                            Container(
+                                Image(
+                                    r"assets/facebook.png",
+                                    width=50,
+                                ),
+                                margin=margin.only(left=10),
+                                on_click=lambda _: print("Google")
+                            ),
+                            Container(
+                                Image(
+                                    r"assets/gmail.png",  # Corregido el nombre del archivo de imagen
+                                    width=50,
+                                ),
+                                margin=margin.only(left=10),
+                                on_click=lambda _: print("Google")
+                            ),
+                            Container(
+                                Image(
+                                    r"assets/google.png",  # Corregido el nombre del archivo de imagen
+                                    width=50,
+                                ),
+                                margin=margin.only(left=10),
+                                on_click=lambda _: print("Google")
+                            ),
+                        ],
+                        alignment=MainAxisAlignment.CENTER,
+                    )
+                )
+            ]
         ),
-        ft.Container(
-            ft.Row([
-                ft.Text("Don't have an account?"),
-                ft.TextButton(
-                    text="Sign up"),
-                ft.Text("Brandon")
-            ])
+    )
+
+    # Definir la estructura del contenedor de registro
+    signup_container = Container(
+        width=320,
+        height=750,
+        bgcolor="#ffffff",
+        border_radius=10,
+        content=Column(
+            width=320,
+            controls=[
+                Container(
+                    width=48,
+                    height=48,
+                    border_radius=10,
+                    margin=margin.only(left=20, right=20, top=10),
+                    content=IconButton(
+                        icon_color="#000000",
+                        icon=icons.ARROW_BACK_IOS_NEW_OUTLINED,
+                        style=ButtonStyle(
+                         side={
+                                MaterialState.DEFAULT:border.BorderSide(1, colors.BLACK26)
+                            },
+                        )
+                    )
+                )
+            ]
+        )  # Aquí deberías añadir el contenido del contenedor de registro
+    )
+
+    # Crear el cuerpo de la página
+    body = Container(
+        width=1000,
+        height=800,
+        content=Row(
+            controls=[
+                login_container,
+                signup_container
+            ]
         )
-    ],
-    alignment=ft.MainAxisAlignment.SPACE_EVENLY
-    ),
+    )
 
-    border_radius=20,
-    width=320,
-    height=500,
-    gradient= ft.LinearGradient([
-        ft.colors.PURPLE,
-        ft.colors.PINK,
-        ft.colors.RED
-    ])
-)
+    # Agregar el cuerpo a la página
+    page.add(body)
 
-def main(page: ft.Page):
-    page.bgcolor = ft.colors.BLACK
-    page.vertical_alignment = "center"
-    page.horizontal_alignment = "center"
-    page.add(conteiner)
-    pass
 
-ft.app(target=main)
+app(main,  view=ft.WEB_BROWSER);

@@ -1,6 +1,8 @@
 import flet as ft
 
 
+
+
 # Define a landing page class ...
 class Landing(ft.View):
     def __init__(self, page: ft.Page):
@@ -34,6 +36,8 @@ class Landing(ft.View):
             ft.Divider(height=10, color="transparent"),
             self.product_page_btn,
         ]
+        
+        
 
 
 # Define your model class => class that stores your data
@@ -306,7 +310,8 @@ def main(page: ft.Page):
 
 
         page.update()
-
+    
+    
     page.on_route_change = router
     page.go("/")
 

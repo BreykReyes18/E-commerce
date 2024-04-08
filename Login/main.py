@@ -110,8 +110,9 @@ def main(page: Page):
                             bgcolor=colors.ORANGE_700,
                             color=colors.WHITE,
                             shape={
-                                MaterialState.HOVERED: RoundedRectangleBorder(),
-                                MaterialState.DEFAULT: RoundedRectangleBorder(),
+                                MaterialState.HOVERED: RoundedRectangleBorder(radius=15),
+                                MaterialState.DEFAULT: RoundedRectangleBorder(radius=15),
+                                MaterialState.HOVERED: RoundedRectangleBorder(radius=15),
                             },
                             padding=20,
                         )
@@ -187,7 +188,135 @@ def main(page: Page):
                             },
                         )
                     )
-                )
+                ),
+                Container(
+                    width=300,
+                    margin=margin.only(left=110, right=20, top=5),  # Corregido el margen
+                    content=Text(
+                        "Register",
+                        size=30,
+                        color="#000000",
+                        weight='w700'
+                    )
+                ),
+                Container(
+                    width=300,
+                    margin=margin.only(left=20, right=20, top=5),
+                    alignment=alignment.center,
+                    content=Text(
+                        "Complete the form below to create an account",
+                        size=14,
+                        color="#000000",
+                        text_align="center"
+                    )
+                ),
+                Container(
+                    width=300,
+                    margin=margin.only(left=20, right=20, top=5),
+                    content=Column(
+                        controls=[
+                            Text(
+                                "Username",
+                                size=14,
+                                color="#000000",
+                            ),
+                            TextField(
+                                text_style=TextStyle(
+                                    color="#000000",
+                                ),
+                                border_radius=15,
+                                border_color=colors.BLACK,
+                                focused_border_color=colors.ORANGE_700,
+                            )
+                        ]
+                    )
+                ),
+                Container(
+                    width=300,
+                    margin=margin.only(left=20, right=20, top=5),
+                    content=Column(
+                        controls=[
+                            Text(
+                                "Email",
+                                size=14,
+                                color="#000000",
+                            ),
+                            TextField(
+                                text_style=TextStyle(
+                                    color="#000000",
+                                ),
+                                border_radius=15,
+                                border_color=colors.BLACK,
+                                focused_border_color=colors.ORANGE_700,
+                            )
+                        ]
+                    )
+                ),
+                Container(
+                    width=300,
+                    margin=margin.only(left=20, right=20, top=5),
+                    content=Column(
+                        controls=[
+                            Text(
+                                "Password",
+                                size=14,
+                                color="#000000",
+                            ),
+                            TextField(
+                                text_style=TextStyle(
+                                    color="#000000",
+                                ),
+                                password=True,
+                                can_reveal_password=True,
+                                border_radius=15,
+                                border_color=colors.BLACK,
+                                focused_border_color=colors.ORANGE_700,
+                            )
+                        ]
+                    )
+                ),
+                Container(
+                    width=300,
+                    margin=margin.only(left=20, right=20, top=5),
+                    content=Column(
+                        controls=[
+                            Text(
+                                "Confirm Password",
+                                size=14,
+                                color="#000000",
+                            ),
+                            TextField(
+                                text_style=TextStyle(
+                                    color="#000000",
+                                ),
+                                password=True,
+                                can_reveal_password=True,
+                                border_radius=15,
+                                border_color=colors.BLACK,
+                                focused_border_color=colors.ORANGE_700,
+                            )
+                        ]
+                    )
+                ),
+                Container(
+                    width=300,
+                    margin=margin.only(left=20, right=20, top=20),  # Corregido el margen
+                    content=ElevatedButton(
+                        "Sign Up",
+                        width=300,
+                        height=55,
+                        style=ButtonStyle(
+                            bgcolor=colors.ORANGE_700,
+                            color=colors.WHITE,
+                            shape={
+                                MaterialState.HOVERED: RoundedRectangleBorder(radius=15),
+                                MaterialState.DEFAULT: RoundedRectangleBorder(radius=15),
+                                MaterialState.HOVERED: RoundedRectangleBorder(radius=15),
+                            },
+                            padding=20,
+                        )
+                    )
+                ),
             ]
         )  # Aquí deberías añadir el contenido del contenedor de registro
     )

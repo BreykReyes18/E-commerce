@@ -107,8 +107,8 @@ class Product(ft.View):
 
         self.controls = [
             self.display_product_page_header(),
-            ft.Text("Shop", size=32),
-            ft.Text("Select items from the list below"),
+            ft.Text("Inicio", size=32),
+            ft.Text("Selecciona items de la lista debajo"),
             self.products,
             self.display_product_page_footer(),
         ]
@@ -231,8 +231,8 @@ class Cart(ft.View):
                 ],
                 alignment="spaceBetween",
             ),
-            ft.Text("Cart", size=32),
-            ft.Text("Your cart items"),
+            ft.Text("Carrito de compras", size=32),
+            ft.Text("Tu carrito de compras"),
             self.cart_items,
         ]
 

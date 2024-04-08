@@ -38,13 +38,19 @@ class Landing(ft.View):
 
 # Define your model class => class that stores your data
 class Model(object):
+    
+    #  chibi= ft.Image(
+    #  src="/assets/chibi.png",
+    #  width=32,
+    #  height=32) 
+
     products: dict = {
         0: {
             "id": "111",
-            "img_src": "/assets/chibi.jpg",
+            "img_src":"/assets/chibi1.png",
             "name": "Loli Chibi 1",
             "description": "Una loli motivada a hacerte sentir mejor",
-            "price": "$21.55",
+            "price": "$22.00",
         },
         1: {
             "id": "222",
@@ -263,7 +269,7 @@ class Cart(ft.View):
         return ft.Container(
             content=control,
             padding=10,
-            border=ft.border.all(1, "white10"),
+            border=ft.border.all(1, "#000000"),
             border_radius=6,
         )
 
@@ -281,6 +287,8 @@ class Cart(ft.View):
 
 
 def main(page: ft.Page):
+    
+
     def router(route):
         page.views.clear()
 
@@ -296,10 +304,11 @@ def main(page: ft.Page):
             cart = Cart(page)
             page.views.append(cart)
 
+
         page.update()
 
     page.on_route_change = router
     page.go("/")
 
 
-ft.app(main, view=ft.WEB_BROWSER)
+ft.app(target=main)
